@@ -45,7 +45,7 @@ services:
     image: traefik:v2.9.6
     container_name: traefik
     command:
-      - '--api.insecure=true'
+      #- '--api.insecure=true' # Used to enable traefik dashboard
       - '--providers.docker=true'
       - '--providers.docker.exposedbydefault=false'
       - '--entrypoints.web.address=:80'
@@ -56,7 +56,7 @@ services:
     ports:
       - '10.200.0.5:80:80/tcp'
       - '10.200.0.5:443:443/tcp'
-      - '10.200.0.5:8080:8080/tcp' # The Web UI (enabled by --api.insecure=true)
+      #- '10.200.0.5:8080:8080/tcp' # The Web UI (enabled by --api.insecure=true)
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     networks:
